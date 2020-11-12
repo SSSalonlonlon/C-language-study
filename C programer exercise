@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+int *ret_arr(int *p, int i);
+
+int main()
+{
+  puts ("How many numble you want to enter?");
+
+  int *p;
+  int i;
+  
+  scanf("%d", &i);
+  int arr[i];
+  p = arr;
+  p[0] = i;
+  p = malloc( (int ) i * sizeof (int ));
+
+  puts("Please enter the follow numble:");
+  ret_arr(p, i);
+  printf("Here's the array's content:\n");
+  
+  int j;
+  for (j = 0; j < i; j++)
+    {
+      printf("%d ", p[j]);
+    }
+
+  printf("\n");
+
+  free(p);
+  return 0;
+}
+
+int  *ret_arr(int *p, int i)
+{
+  int  j;
+  //int *ptr;
+  p[0] = i;
+  for (j = 1; j < i; j++)
+    {
+      int a;
+      scanf("%d", &a);
+      p[j] = a;
+    }
+
+  // ptr = p;
+  // free(ptr);
+  return p;
+}
